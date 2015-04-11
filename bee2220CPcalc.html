@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CoolProp for Thermo Class in Browser</title>
+  <script type="text/javascript" src="http://www.coolprop.sourceforge.net/jscript/coolprop-latest.js"></script>
+  <script>
+      PropsSI = Module.cwrap('PropsSI','number',['string','string','number','string','number','string'])
+      Props1 = Module.cwrap('Props1SI','number',['string','string'])
+  </script>
+<head>
+
+<body>
+  <h6>Written on 4/10/2015 by Mihir Paradkar</h6>
+  <h6>Calculations done in CoolProp library.</h6>
+  <p>Fill the fields of the form with an output state variable and
+    two input state variables. An example call for finding the enthalpy
+    of water at 400K and 500kPa is:<br>
+    Desired Output: H<br>
+    Property1 Key: T<br>
+    Property Value: 400<br>
+    Property2 Key: P<br>
+    Property Value: 500e3<br>
+    Substance Name: Water<br>
+    All units are in SI. More documentation can be found at <a href="http://www.coolprop.org/coolprop/HighLevelAPI.html#table-of-string-inputs-to-propssi-function">CoolProp High-Level Interface</a><br>
+    Input/Output keys are:<br>
+    T for temperature, P for pressure, Q for mass-vapor quality, S for entropy, H for enthalpy, U for internal energy, D for density. Any of the above can be calculated with values of any two of the others.<br>
+    Temperatures are in K, Pressures are in Pa, Quality is a number between 0 and 1, Entropy is in J/(kg*k), Enthalpy and Internal Energy are in J/kg, Density is in kg/m^3.<br>
+    Density, Internal Energy, Enthalpy, and Entropy can be turned into molar values by adding MOLAR to the end of their key identifier (i.e. HMOLAR instead of H).<br>
+    Many materials are available, including Water, R134a, CarbonDioxide, CarbonMonoxide, Oxygen, Nitrogen, Methane, Ethane, Ammonia, and many more. A full list of fluids can be found at <a href="http://www.coolprop.org/fluid_properties/PurePseudoPure.html#list-of-fluids">CoolProp List of Fluids</a>
+  </p>
+  <Form>
+      Desired Output: <input type="text" name="outkey">  <p>
+      Property1 Key:  <input type="text" name="prop1key"> <p>
+      Property Value: <input type="number" name="prop1val"> <p>
+      Property2 Key:  <input type="text" name="prop2key"> <p>
+      Property Value: <input type="number" name="prop2val"> <p>
+      Substance Name: <input type="text" name="material"> <p>
+      <input type="button" value="Calculate!" onclick="calculate(this.form)"/>
+  </Form>
+  <div id="answer"> </div>
+  <script type="text/javascript">
+    function calculate(form){
+      var answer = PropsSI(form.outkey.value,
+                     form.prop1key.value,
+                     form.prop1val.value,
+                     form.prop2key.value,
+                     form.prop2val.value,
+                     form.material.value);
+      var answer = form.outkey.value +" is " + answer;
+      document.getElementById("answer").innerHTML = answer;
+    }
+  </script>
+</body>
+
+</html>
