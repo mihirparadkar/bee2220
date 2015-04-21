@@ -29,10 +29,46 @@
     Many materials are available, including Water, R134a, CarbonDioxide, CarbonMonoxide, Oxygen, Nitrogen, Methane, Ethane, Ammonia, and many more. A full list of fluids can be found at <a href="http://www.coolprop.org/fluid_properties/PurePseudoPure.html#list-of-fluids">CoolProp List of Fluids</a>
   </p>
   <Form>
-      Desired Output: <input type="text" name="outkey">  <p>
-      Property1 Key:  <input type="text" name="prop1key"> <p>
+      Desired Output: <select type="text" name="outkey">
+                        <option value="D">Mass Density(kg/m^3)</option>
+                        <option value="DMOLAR">Molar Density(mol/m^3)</option>
+                        <option value="H">Specific Enthalpy(J/kg)</option>
+                        <option value="HMOLAR">Specific Molar Enthalpy(J/mol)</option>
+                        <option value="P">Pressure(Pa)</option>
+                        <option value="Q">Mass-Vapor Quality</option>
+                        <option value="S">Specific Entropy(J/kg*K)</option>
+                        <option value="SMOLAR">Specific Molar Entropy(J/mol*K)</option>
+                        <option value="T">Temperature(K)</option>
+                        <option value="U">Specific Internal Energy(J/kg)</option>
+                        <option value="UMOLAR">Specific Molar Internal Energy(J/mol)</option>
+                      </select><p>
+      Property1 Key:  <select type="text" name="prop1key">
+                        <option value="D">Mass Density(kg/m^3)</option>
+                        <option value="DMOLAR">Molar Density(mol/m^3)</option>
+                        <option value="H">Specific Enthalpy(J/kg)</option>
+                        <option value="HMOLAR">Specific Molar Enthalpy(J/mol)</option>
+                        <option value="P">Pressure(Pa)</option>
+                        <option value="Q">Mass-Vapor Quality</option>
+                        <option value="S">Specific Entropy(J/kg*K)</option>
+                        <option value="SMOLAR">Specific Molar Entropy(J/mol*K)</option>
+                        <option value="T">Temperature(K)</option>
+                        <option value="U">Specific Internal Energy(J/kg)</option>
+                        <option value="UMOLAR">Specific Molar Internal Energy(J/mol)</option>
+                      </select><p>
       Property Value: <input type="number" name="prop1val"> <p>
-      Property2 Key:  <input type="text" name="prop2key"> <p>
+      Property2 Key:  <select type="text" name="prop2key">
+                        <option value="D">Mass Density(kg/m^3)</option>
+                        <option value="DMOLAR">Molar Density(mol/m^3)</option>
+                        <option value="H">Specific Enthalpy(J/kg)</option>
+                        <option value="HMOLAR">Specific Molar Enthalpy(J/mol)</option>
+                        <option value="P">Pressure(Pa)</option>
+                        <option value="Q">Mass-Vapor Quality</option>
+                        <option value="S">Specific Entropy(J/kg*K)</option>
+                        <option value="SMOLAR">Specific Molar Entropy(J/mol*K)</option>
+                        <option value="T">Temperature(K)</option>
+                        <option value="U">Specific Internal Energy(J/kg)</option>
+                        <option value="UMOLAR">Specific Molar Internal Energy(J/mol)</option>
+                      </select><p>
       Property Value: <input type="number" name="prop2val"> <p>
       Substance Name: <input type="text" name="material"> <p>
       <input type="button" value="Calculate!" onclick="calculate(this.form)"/>
